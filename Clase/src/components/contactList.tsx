@@ -1,0 +1,22 @@
+import type { Contact } from '../types';
+import ContactItem from './ContactItem';
+
+interface Props {
+    contacts: Contact[];
+    onDelete: (id: number) => void;
+}
+
+function ContactList ({ contacts, onDelete }: Props) {
+    if (contacts.length === 0) {
+        return <p>No hay contactos disponibles.</p>;
+    }
+    return (
+        <ul>
+            {contacts.map(contact => (
+                <ContactItem key={contact.id} contact={contact} onDelete={onDelete} />
+            ))}
+        </ul>
+    );
+}
+
+export default ContactList;
