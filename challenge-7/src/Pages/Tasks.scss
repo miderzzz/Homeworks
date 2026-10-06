@@ -1,0 +1,94 @@
+@use "../styles/shared" as *;
+
+
+.logout-link{
+    @include text;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.tasks-container {
+    @include align-center;
+    min-height: 100vh;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: $main-color;
+
+    h1 {
+        @include title;
+        font-size: 60px; 
+    }
+
+    .welcome {
+        @include text;
+        margin-bottom: 10px;
+        font-size: 25px;
+        font-weight: 100
+    }
+
+    form {
+        @include align-center;
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+input {
+    padding: 0.5rem;
+    margin-bottom: 5px;
+    width: 300px;
+    text-align: left;
+    border: black solid 2px;
+    
+}
+
+.add-button {
+    padding: 0.5rem 1rem;
+    height: fit-content;
+    cursor: pointer;
+    border: black solid 1px;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-6px); }
+}
+
+
+.tasks-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 900px;
+    width: 100%;
+}
+
+.tasks-card {
+    background-color: rgb(250, 248, 248);
+    padding: 5px;
+    border: black solid 3px;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-6px); }
+
+    &.color3 { background-color: #ffd8d8; }
+    &.color2 { background-color: #d0e8ff; }
+    &.color1 { background-color: #d4f5dd; }
+}
+
+.TitleTask{
+    font-weight: bold;
+}
+
+.status{
+    text-decoration: underline ;
+}
+
+
+
+
+
+

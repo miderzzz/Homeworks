@@ -1,0 +1,9 @@
+@use "../styles/shared" as *;
+
+.login-container {
+    @include auth-container;
+}
+
+.register-link {
+    @include text;
+}

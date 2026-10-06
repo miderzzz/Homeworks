@@ -1,0 +1,67 @@
+$main-color: rgb(78, 165, 247);
+
+@mixin align-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+@mixin title {
+    font-size: 100px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+@mixin subtitle {
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+@mixin text {
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+}
+
+@mixin auth-container {
+    @include align-center;
+    height: 100vh;
+    gap: 10px;
+    background-color: $main-color;
+
+    h1, .taskDone {
+        @include title;
+    }
+
+    h2 {
+        @include subtitle;
+    }
+
+    form {
+        @include align-center;
+        gap: 10px;
+        
+    }
+}
+
+input {
+    padding: 0.5rem;
+    margin-bottom: 5px;
+    width: 500px;
+    text-align: left;
+    
+}
+
+.submit {
+    padding: 0.5rem;
+    margin-top: 20px;
+    width: 100px;
+    height: auto;
+    transition: transform 0.2s ease;
+    border: black solid 1px;
+
+    &:hover {
+        transform: translateY(-6px); }
+}
