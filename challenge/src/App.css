@@ -1,0 +1,116 @@
+:root {
+  --color-sidebar: #172554;
+  --color-sidebar-hover: #243b75;
+  --color-accent: #93c5fd;
+  --color-text: #172033;
+  --color-muted: #64748b;
+  --color-surface: #ffffff;
+  --background-color: #f1f5f9;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+.sidebar {
+  flex: 0 0 260px;
+  order: 1;
+  padding: 2rem 1rem;
+  color: var(--color-surface);
+  background: var(--color-sidebar);
+}
+
+.sidebar_title {
+  margin: 0 0 2rem;
+  padding: 0 0.75rem;
+  font-size: 1.25rem;
+  text-align: right;
+  
+}
+
+.sidebar_list,
+.menu-item_children {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: right;
+}
+
+.menu-item {
+  margin: 0.25rem 0;
+  
+}
+
+.menu-item_link,
+.menu-item__button {
+  display: block;
+  flex: 1;
+  padding: 0.75rem;
+  border: 0;
+  border-radius: 0.5rem;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.menu-item_link:hover,
+.menu-item__button:hover,
+.menu-item_link.active {
+  color: var(--color-surface);
+  background: var(--color-sidebar-hover);
+}
+
+.menu-item__link.active {
+  box-shadow: inset 3px 0 var(--color-accent);
+}
+
+.menu-item_toggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 0.5rem;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  translate: 0 0;
+  transition: background 0.3s ease, translate 0.3s ease;
+}
+
+.menu-item_toggle:hover {
+  background: var(--color-sidebar-hover);
+}
+
+.menu-item_children {
+  margin: 0.25rem 0 0.5rem 0.75rem;
+  padding-left: 0.1rem;
+  border-left: 1px solid rgba(240, 8, 8, 0.5);
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0;
+  padding: clamp(2rem, 6vw, 5rem);
+}
+
+.home,
+.clothes,
+.shoes,
+.contact {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: var(--color-surface);
+  box-shadow: 0 8px 24px rgb(15 23 42 / 8%);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 700;
+}
+
