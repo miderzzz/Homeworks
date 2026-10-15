@@ -1,0 +1,145 @@
+body {
+    background-color: #14b81c;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    margin: 24px 0;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 24px 0;
+}
+
+input,
+select {
+    padding: 14px 16px;
+    font-size: 1.2rem;
+    border: 1px solid #888;
+    border-radius: 6px;
+}
+
+button {
+    padding: 14px 22px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7f8bad;
+}
+
+.login-container,
+.register-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.login-container h1,
+.login-container h2,
+.register-container h2 {
+    margin: 0;
+}
+
+.login-container h2,
+.register-container h2 {
+    font-size: 1.8rem;
+}
+
+.registerTitle {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.login-container form,
+.register-container form {
+    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+    margin: 0;
+}
+
+.login-container p,
+.register-container p {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.tree {
+    list-style: none;
+    margin: 16px 0;
+    padding: 0;
+}
+
+.tree button {
+    padding: 4px 8px;
+    font-size: 1rem;
+    background-color: transparent;
+    color: inherit;
+}
+
+.tree button:hover {
+    background-color: #fca5a5;
+}
+
+.tree-item {
+    list-style: none;
+}
+
+.tree-item__row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background-color 0.15s;
+}
+
+.tree-item__row:hover {
+    background-color: #eef2f7;
+}
+
+.tree-item__row--folder {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tree-item__row--folder:hover {
+    background-color: #dbe7fb;
+}
+
+.tree-item__row--open {
+    background-color: #e3edff;
+    color: #1d4ed8;
+}
+
+.tree-item__name {
+    flex: 1;
+}
+
+.tree-item__children {
+    list-style: none;
+    margin: 0 0 0 14px;
+    padding-left: 20px;
+    border-left: 2px solid #e5e7eb;
+}
+
