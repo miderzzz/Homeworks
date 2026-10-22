@@ -18,6 +18,7 @@ export function Form({ onAddUser }) {
 
             <input
                 value={user.userName}
+                type="text"
                 onChange={(e) => setUser({ ...user, userName: e.target.value })}
                 placeholder="Nombre del Usuario" />
             <input
@@ -26,6 +27,7 @@ export function Form({ onAddUser }) {
                 placeholder="Id del Usuario" />
             <input
                 value={user.withdrawalAmount}
+                type="number"
                 onChange={(e) => setUser({ ...user, withdrawalAmount: e.target.value })}
                 placeholder="Cantidad de retiro" />
 

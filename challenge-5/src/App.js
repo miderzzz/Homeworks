@@ -3,38 +3,48 @@ import { userData } from "./data/mockUser"
 import { Form } from "./components/formu"
 import { NextUser } from "./components/boton"
 import { UserQueue } from "./components/filaQueue"
+import { Queue } from "./class/Queue"
 import { useState } from "react"
 
+const byArrival = (a, b) => a.dateArrival - b.dateArrival;
+
+const createInitialQueue = () => {
+  const queue = new Queue();
+  [...userData].sort(byArrival).forEach((user) => queue.enqueue(user));
+  return queue;
+};
+
+// Profe, esto es porque como tiene que asigarle una fecha random, entonces no lo puedo poner de una en la fila
+const enqueueByArrival = (queue, newUser) => {
+  const waiting = [];
+  while (!queue.isEmpty()) waiting.push(queue.dequeue());
+  [...waiting, newUser].sort(byArrival).forEach((user) => queue.enqueue(user));
+};
 
 function App() {
-
-  const [queue, setQueue] = useState([...userData].sort((a, b) => a.dateArrival - b.dateArrival))
-  const [currentUser, setCurrentUser] = useState(null)
+  const [queue] = useState(createInitialQueue);
+  const [people, setPeople] = useState(() => queue.toarray());
+  const [currentUser, setCurrentUser] = useState(null);
 
   const addUser = (newUser) => {
-    const updateQueue = [...queue, newUser].sort((a, b) => a.dateArrival - b.dateArrival)
-    setQueue(updateQueue);
+    enqueueByArrival(queue, newUser);
+    setPeople(queue.toarray());
   }
 
-
-  const AttendNextUser = () => {
-    if (queue.length === 0) return;
-    const nextInLine = queue[0];
-    setCurrentUser(nextInLine)
-    setQueue(queue.slice(1))
-
+  const attendNextUser = () => {
+    if (queue.isEmpty()) return;
+    setCurrentUser(queue.dequeue());
+    setPeople(queue.toarray());
   }
-
-
-
 
   return (
     <div className="App">
       <h1>BANCO UAO</h1>
 
       <div className="queueGrafic">
-        <UserQueue users={queue} />
-        <span className="userInTurn">{currentUser ? currentUser.userName : "Sin turno aún"}
+        <UserQueue users={people} />
+        <span className="userInTurn">
+          {currentUser ? currentUser.userName : "Sin turno aún"}
         </span>
       </div>
 
@@ -42,11 +52,10 @@ function App() {
 
       <NextUser
         typeBoton="next"
-        deleteFirstUser={AttendNextUser}
+        deleteFirstUser={attendNextUser}
         text="Siguiente usuario" />
-
     </div>
   );
-
 }
+
 export default App;
