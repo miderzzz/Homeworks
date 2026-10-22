@@ -3,44 +3,45 @@ import { booksData } from "./data/librosData"
 import { Form } from './components/form';
 import { BotonDelete } from './components/botonDelete';
 import { BookStack } from './components/libroStack';
+import { Stack } from './class/Stack';
 import { useState } from "react"
 
+const createInitialStack = () => {
+  const stack = new Stack();
+  booksData.forEach((book) => stack.push(book));
+  return stack;
+};
 
 function App() {
-
-  const [stack, setStack] = useState(booksData);
+  const [stack] = useState(createInitialStack);
+  const [books, setBooks] = useState(() => stack.toarray());
 
   const addBookStack = (newBook) => {
-    setStack([...stack, newBook]);
+    stack.push(newBook);
+    setBooks(stack.toarray());
   }
 
   const deleteBookStack = () => {
-    setStack(stack.slice(0, -1));
+    stack.pop();
+    setBooks(stack.toarray());
   }
-return (
 
+  return (
+    <div className="App">
+      <h1>BIBLIOTECA UAO</h1>
 
-  <div className="App">
-  
-    <h1>BIBLIOTECA UAO</h1>
-  
-    <div className="stack">
-    <BookStack books={stack}/>
+      <div className="stack">
+        <BookStack books={books} />
+      </div>
+
+      <Form onAddBook={addBookStack} />
+
+      <BotonDelete
+        deleteLastBook={deleteBookStack}
+        text="Borrar libro"
+        typeBoton="delete" />
     </div>
-
-
-    <Form onAddBook={addBookStack}/>
-
-    <BotonDelete
-      deleteLastBook={deleteBookStack}
-      text= "Borrar libro"
-      typeBoton="delete"/>
-
-
-
-
-  </div>)
-    ;
+  );
 }
 
 export default App;
