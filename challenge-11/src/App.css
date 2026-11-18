@@ -1,0 +1,8 @@
+.person {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: monospace;
+}
