@@ -1,0 +1,16 @@
+export const products = [
+  { name: 'air max', popularity: 90 },
+  { name: 'air force', popularity: 95 },
+  { name: 'air jordan', popularity: 85 },
+  { name: 'adidas boost', popularity: 80 },
+  { name: 'adidas superstar', popularity: 88 },
+  { name: 'adidas samba', popularity: 92 },
+  { name: 'air zoom', popularity: 70 },
+  { name: 'asics gel', popularity: 75 },
+  { name: 'nike dunk', popularity: 93 },
+  { name: 'nike pegasus', popularity: 78 },
+  { name: 'new balance 550', popularity: 89 },
+  { name: 'puma suede', popularity: 72 },
+  { name: 'vans old skool', popularity: 84 },
+  { name: 'converse chuck', popularity: 91 },
+];
