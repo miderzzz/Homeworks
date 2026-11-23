@@ -1,0 +1,110 @@
+@use '../../Styles/variables' as *;
+
+.card {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  overflow: hidden;
+  border-radius: $radius-lg;
+  background: $color-black;
+  color: $color-white;
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.distance,
+.store {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $space-2;
+  padding: $space-5;
+}
+
+.store {
+  justify-content: center;
+  background: $dark-surface;
+  border-left: 1px solid $dark-border;
+
+  @media (max-width: 720px) {
+    border-left: none;
+    border-top: 1px solid $dark-border;
+  }
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  color: $color-gray;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.live {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-accent;
+  animation: pulse 1.6s ease-out infinite;
+}
+
+.km {
+  @include display;
+  color: $color-accent;
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  line-height: 0.9;
+}
+
+.time {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.message {
+  margin: 0;
+  max-width: 380px;
+  color: $color-gray;
+}
+
+.activate {
+  margin-top: $space-2;
+  background: $color-accent;
+  color: $color-black;
+
+  &:hover:not(:disabled) {
+    background: $color-accent-dark;
+  }
+}
+
+.address {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.directions {
+  margin-top: $space-2;
+  padding: 8px 16px;
+  border: 1px solid $color-accent;
+  border-radius: $radius;
+  color: $color-accent;
+  text-decoration: none;
+
+  &:hover {
+    background: $color-accent;
+    color: $color-black;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($color-accent, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba($color-accent, 0);
+  }
+}

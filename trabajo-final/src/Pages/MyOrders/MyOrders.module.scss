@@ -1,0 +1,12 @@
+@use '../../Styles/variables' as *;
+
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}

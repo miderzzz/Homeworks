@@ -1,0 +1,33 @@
+@use '../../Styles/variables' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.header h1 {
+  margin: $space-1 0;
+}
+
+.kicker {
+  margin: 0;
+  color: $color-success;
+  font-weight: 700;
+}
+
+.code {
+  padding: 0 $space-2;
+  border-radius: $radius;
+  background: $color-accent;
+  color: $color-primary;
+  letter-spacing: 1px;
+}
+
+.totals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-4;
+}

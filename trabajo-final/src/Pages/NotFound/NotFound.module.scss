@@ -1,0 +1,12 @@
+@use '../../Styles/variables' as *;
+
+.page {
+  padding: $space-6 0;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    font-size: 4rem;
+    color: $color-primary;
+  }
+}

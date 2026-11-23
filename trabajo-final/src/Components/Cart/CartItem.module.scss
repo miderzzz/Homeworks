@@ -1,0 +1,55 @@
+@use '../../Styles/variables' as *;
+
+.item {
+  display: grid;
+  grid-template-columns: 72px 1fr auto auto auto;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3 0;
+  border-bottom: 1px solid $color-border;
+}
+
+.image {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: $radius;
+  background: $color-surface;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.team,
+.size {
+  color: $color-muted;
+  font-size: 0.85rem;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+
+  button {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+  }
+}
+
+.price {
+  min-width: 100px;
+  text-align: right;
+}
+
+.remove {
+  background: transparent;
+  color: $color-danger;
+
+  &:hover:not(:disabled) {
+    background: rgba($color-danger, 0.08);
+  }
+}

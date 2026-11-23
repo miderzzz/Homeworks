@@ -1,0 +1,32 @@
+@use '../../Styles/variables' as *;
+
+.page {
+  display: flex;
+  gap: $space-4;
+
+  @media (max-width: 760px) {
+    flex-direction: column;
+  }
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+  margin-bottom: $space-4;
+}
+
+.breadcrumb {
+  font-weight: 600;
+
+  a {
+    text-decoration: none;
+  }
+}

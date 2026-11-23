@@ -1,0 +1,55 @@
+@use '../../Styles/variables' as *;
+
+.wrapper {
+  overflow-x: auto;
+  border-radius: $radius;
+  background: $color-bg;
+}
+
+.thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: $radius;
+  background: $color-surface;
+}
+
+.muted {
+  color: $color-muted;
+  font-size: 0.8rem;
+}
+
+.low {
+  color: $color-danger;
+  font-weight: 700;
+}
+
+.inactive {
+  opacity: 0.55;
+}
+
+.active {
+  background: rgba($color-success, 0.12);
+  color: $color-success;
+
+  &:hover:not(:disabled) {
+    background: rgba($color-success, 0.2);
+  }
+}
+
+.hidden {
+  background: $color-surface;
+  color: $color-muted;
+
+  &:hover:not(:disabled) {
+    background: $color-border;
+  }
+}
+
+.empty {
+  padding: $space-5;
+  border-radius: $radius;
+  background: $color-bg;
+  color: $color-muted;
+  text-align: center;
+}

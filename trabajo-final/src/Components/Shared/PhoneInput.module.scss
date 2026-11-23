@@ -1,0 +1,18 @@
+@use '../../Styles/variables' as *;
+
+.phone {
+  display: flex;
+  gap: $space-2;
+
+  select {
+    width: auto;
+    min-width: 0;
+    flex: 0 0 auto;
+    max-width: 48%;
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+  }
+}

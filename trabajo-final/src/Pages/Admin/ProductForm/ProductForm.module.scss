@@ -1,0 +1,65 @@
+@use '../../../Styles/variables' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  max-width: 900px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  padding: $space-4;
+  border-radius: $radius;
+  background: $color-bg;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: $space-3;
+}
+
+.check {
+  flex-direction: row;
+  align-items: center;
+  gap: $space-2;
+  align-self: end;
+  padding-bottom: $space-2;
+}
+
+.error {
+  color: $color-danger;
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.submit {
+  align-self: flex-start;
+  padding: $space-3 $space-5;
+  font-size: 1rem;
+}
+
+.summary {
+  padding: $space-3 $space-4;
+  border-radius: $radius;
+  background: rgba($color-danger, 0.1);
+  color: $color-danger;
+
+  ul {
+    margin: $space-1 0 0;
+    padding-left: $space-4;
+  }
+}

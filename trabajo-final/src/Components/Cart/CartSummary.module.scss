@@ -1,0 +1,61 @@
+@use '../../Styles/variables' as *;
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  padding: $space-4;
+  border-radius: $radius;
+  background: $color-surface;
+
+  h3 {
+    margin: 0 0 $space-2;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: $space-3;
+}
+
+.discount {
+  color: $color-success;
+}
+
+.codeForm {
+  display: flex;
+  gap: $space-2;
+}
+
+.link {
+  padding: 0;
+  background: transparent;
+  color: $color-danger;
+  font-size: 0.85rem;
+  text-align: left;
+
+  &:hover:not(:disabled) {
+    background: transparent;
+    text-decoration: underline;
+  }
+}
+
+.total {
+  margin-top: $space-2;
+  padding-top: $space-2;
+  border-top: 1px solid $color-border;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.checkout {
+  margin-top: $space-2;
+  padding: $space-2 $space-3;
+  border-radius: $radius;
+  background: $color-accent;
+  color: $color-primary;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}

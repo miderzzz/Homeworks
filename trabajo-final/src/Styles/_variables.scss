@@ -1,0 +1,44 @@
+$color-black: #121212;
+$color-white: #ffffff;
+$color-gray: #bcbcbc;
+$color-lime: #d6ff00;
+
+$color-primary: $color-black;
+$color-primary-light: #2a2a2a;
+$color-accent: $color-lime;
+$color-accent-dark: #b8dc00;
+$color-text: $color-black;
+$color-muted: #6e6e6e;
+$color-border: #e3e3e3;
+$color-bg: $color-white;
+$color-surface: #f3f3f3;
+$color-danger: #e5383b;
+$color-danger-dark: #c62f32;
+$color-success: #2f9e44;
+
+$dark-surface: #1a1a1a;
+$dark-field: #202020;
+$dark-border: #333333;
+
+$font-base: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+$font-display: 'Barlow Condensed', 'Arial Narrow', 'Inter', sans-serif;
+
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 16px;
+$space-4: 24px;
+$space-5: 32px;
+$space-6: 48px;
+
+$radius: 10px;
+$radius-lg: 18px;
+$shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+$content-width: 1200px;
+
+@mixin display {
+  font-family: $font-display;
+  font-style: italic;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}

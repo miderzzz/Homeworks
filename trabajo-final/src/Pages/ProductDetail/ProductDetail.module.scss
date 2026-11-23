@@ -1,0 +1,58 @@
+@use '../../Styles/variables' as *;
+
+.page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: $space-5;
+
+  @media (max-width: 760px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+
+  h3 {
+    margin: $space-3 0 0;
+  }
+}
+
+.team {
+  color: $color-muted;
+  text-decoration: none;
+}
+
+.name {
+  margin: 0;
+}
+
+.meta {
+  margin: 0;
+  color: $color-muted;
+}
+
+.price {
+  margin: $space-2 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: $color-primary;
+}
+
+.stock {
+  margin: 0;
+  color: $color-muted;
+  font-size: 0.9rem;
+}
+
+.actions {
+  display: flex;
+  gap: $space-2;
+  margin-top: $space-2;
+}
+
+.quantity {
+  width: 80px;
+}

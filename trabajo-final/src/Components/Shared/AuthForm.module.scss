@@ -1,0 +1,185 @@
+@use '../../Styles/variables' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  width: 100%;
+  max-width: 420px;
+  margin: $space-5 auto;
+  padding: $space-5;
+  border-radius: $radius-lg;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.badge {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: $color-black;
+
+  img {
+    height: 30px;
+    width: auto;
+  }
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.82rem;
+}
+
+.title {
+  margin: 0;
+  font-family: $font-base;
+  font-style: normal;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  text-transform: none;
+}
+
+.subtitle {
+  margin: 2px 0 0;
+  font-size: 0.85rem;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field {
+  gap: 6px;
+}
+
+.hint {
+  font-weight: 400;
+  font-size: 0.78rem;
+}
+
+.submit {
+  width: 100%;
+  padding: 13px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.footer {
+  padding-top: $space-3;
+  font-size: 0.88rem;
+  text-align: center;
+  line-height: 1.8;
+
+  a {
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.light {
+  background: $color-white;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-card;
+
+  .subtitle,
+  .hint {
+    color: $color-muted;
+  }
+
+  .label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .footer {
+    border-top: 1px solid $color-border;
+    color: $color-muted;
+
+    a {
+      color: $color-black;
+    }
+  }
+}
+
+.dark {
+  background: $dark-surface;
+  border: 1px solid $dark-border;
+  color: $color-white;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+
+  .eyebrow,
+  .subtitle,
+  .hint {
+    color: $color-gray;
+  }
+
+  .title {
+    font-size: 1.9rem;
+  }
+
+  .label {
+    color: $color-white;
+  }
+
+  .field:focus-within .label {
+    color: $color-accent;
+  }
+
+  input,
+  select {
+    background: $dark-field;
+    border-color: $dark-border;
+    color: $color-white;
+
+    &::placeholder {
+      color: #7a7a7a;
+    }
+
+    &:focus {
+      border-color: $color-accent;
+      box-shadow: 0 0 0 3px rgba($color-accent, 0.25);
+    }
+  }
+
+  option {
+    background: $dark-field;
+    color: $color-white;
+  }
+
+  .submit {
+    background: $color-accent;
+    color: $color-black;
+
+    &:hover:not(:disabled) {
+      background: $color-accent-dark;
+    }
+  }
+
+  .footer {
+    border-top: 1px solid $dark-border;
+    color: $color-gray;
+
+    a {
+      color: $color-accent;
+    }
+  }
+}

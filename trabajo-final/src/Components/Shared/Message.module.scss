@@ -1,0 +1,23 @@
+@use '../../Styles/variables' as *;
+
+.message {
+  margin: $space-2 0;
+  padding: $space-2 $space-3;
+  border-radius: $radius;
+  font-size: 0.9rem;
+}
+
+.info {
+  background: $color-surface;
+  color: $color-text;
+}
+
+.error {
+  background: rgba($color-danger, 0.1);
+  color: $color-danger;
+}
+
+.success {
+  background: rgba($color-success, 0.1);
+  color: $color-success;
+}

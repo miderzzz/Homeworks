@@ -1,0 +1,31 @@
+@use '../../Styles/variables' as *;
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+  padding: $space-4;
+  border-radius: $radius;
+  background: rgba($color-success, 0.08);
+  border: 1px solid rgba($color-success, 0.35);
+
+  h3 {
+    margin: 0 0 $space-1;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.button {
+  padding: $space-2 $space-4;
+  border-radius: $radius;
+  background: #25d366;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}

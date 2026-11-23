@@ -1,0 +1,43 @@
+@use '../../Styles/variables' as *;
+
+.searchBar {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+
+.results {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + #{$space-1});
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: $space-1 0;
+  list-style: none;
+  background: $color-bg;
+  border-radius: $radius;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  padding: $space-2 $space-3;
+  color: $color-text;
+  text-decoration: none;
+
+  &:hover {
+    background: $color-surface;
+  }
+}
+
+.team {
+  color: $color-muted;
+  font-size: 0.8rem;
+}
+
+.empty {
+  padding: $space-2 $space-3;
+  color: $color-muted;
+}

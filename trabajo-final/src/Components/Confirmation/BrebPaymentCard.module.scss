@@ -1,0 +1,45 @@
+@use '../../Styles/variables' as *;
+
+.card {
+  padding: $space-4;
+  border: 2px solid $color-accent;
+  border-radius: $radius;
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.data {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: $space-2 $space-4;
+  margin: 0;
+
+  dt {
+    color: $color-muted;
+  }
+
+  dd {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    margin: 0;
+  }
+}
+
+.copy {
+  padding: 2px $space-2;
+  font-size: 0.8rem;
+}
+
+.steps {
+  margin: $space-4 0 0;
+  padding-left: $space-4;
+}
+
+.expires {
+  margin-bottom: 0;
+  color: $color-danger;
+  font-size: 0.9rem;
+}
