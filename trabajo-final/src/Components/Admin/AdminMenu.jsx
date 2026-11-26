@@ -7,7 +7,7 @@ import styles from './AdminMenu.module.scss';
 const linkClass = ({ isActive }) => (isActive ? `${styles.link} ${styles.active}` : styles.link);
 
 const AdminMenu = () => {
-  const { user, signOut } = useAuth();
+  const { user, isOwner, signOut } = useAuth();
   const navigate = useNavigate();
 
   const logout = async () => {
@@ -46,6 +46,13 @@ const AdminMenu = () => {
             Códigos de descuento
           </NavLink>
         </li>
+        {isOwner && (
+          <li>
+            <NavLink to="/admin/equipo" className={linkClass}>
+              Equipo
+            </NavLink>
+          </li>
+        )}
         <li>
           <Link to="/" className={styles.link}>
             Ver tienda
@@ -54,6 +61,7 @@ const AdminMenu = () => {
       </ul>
 
       <div className={styles.account}>
+        <span className={styles.role}>{isOwner ? 'Dueño' : 'Empleado'}</span>
         <span>{user?.email}</span>
         <button type="button" onClick={logout}>
           Salir

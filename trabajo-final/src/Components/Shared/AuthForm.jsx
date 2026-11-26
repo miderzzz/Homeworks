@@ -11,7 +11,7 @@ const FIELDS = {
   ],
   register: [
     { name: 'fullName', label: 'Nombre completo', type: 'text', autoComplete: 'name', placeholder: 'Nombre y apellido' },
-    { name: 'phone', label: 'Celular', type: 'tel', hint: 'Te escribiremos por WhatsApp sobre tus pedidos' },
+    { name: 'phone', label: 'Celular', type: 'tel' },
     { name: 'email', label: 'Correo electrónico', type: 'email', autoComplete: 'email', placeholder: 'tucorreo@ejemplo.com' },
     {
       name: 'password',

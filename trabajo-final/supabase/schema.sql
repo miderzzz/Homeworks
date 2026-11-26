@@ -21,7 +21,7 @@ create table public.profiles (
   full_name   text not null default '',
   phone       text not null default '',
   role        text not null default 'cliente'
-              check (role in ('cliente', 'admin')),
+              check (role in ('cliente', 'empleado', 'admin')),
   created_at  timestamptz not null default now()
 );
 
@@ -171,8 +171,25 @@ language sql stable security definer set search_path = public
 as $$
   select exists (
     select 1 from public.profiles
+    where id = auth.uid() and role in ('admin', 'empleado')
+  );
+$$;
+
+create or replace function public.is_owner()
+returns boolean
+language sql stable security definer set search_path = public
+as $$
+  select exists (
+    select 1 from public.profiles
     where id = auth.uid() and role = 'admin'
   );
+$$;
+
+create or replace function public.has_mfa()
+returns boolean
+language sql stable
+as $$
+  select coalesce(auth.jwt() ->> 'aal', '') = 'aal2';
 $$;
 
 create or replace function public.handle_new_user()
@@ -199,7 +216,7 @@ as $$
 begin
   if new.role is distinct from old.role
      and auth.uid() is not null
-     and not public.is_admin() then
+     and coalesce(current_setting('app.role_change', true), '') <> 'on' then
     raise exception 'No tienes permiso para cambiar el rol';
   end if;
   return new;
@@ -688,6 +705,66 @@ begin
 end;
 $$;
 
+create or replace function public._require_owner_mfa()
+returns void
+language plpgsql stable security definer set search_path = public
+as $$
+begin
+  if not public.is_owner() then
+    raise exception 'Solo el dueño de la tienda puede administrar el equipo';
+  end if;
+  if not public.has_mfa() then
+    raise exception 'Verifica tu código de Google Authenticator para continuar';
+  end if;
+end;
+$$;
+
+create or replace function public.list_staff()
+returns table (id uuid, email text, full_name text, role text, created_at timestamptz)
+language plpgsql security definer set search_path = public
+as $$
+begin
+  perform public._require_owner_mfa();
+  return query
+    select p.id, u.email::text, p.full_name, p.role, p.created_at
+      from public.profiles p
+      join auth.users u on u.id = p.id
+     where p.role in ('admin', 'empleado')
+     order by (p.role = 'admin') desc, u.email;
+end;
+$$;
+
+create or replace function public.set_staff_role(p_email text, p_is_staff boolean)
+returns text
+language plpgsql security definer set search_path = public
+as $$
+declare
+  v_id   uuid;
+  v_role text;
+begin
+  perform public._require_owner_mfa();
+
+  select p.id, p.role into v_id, v_role
+    from public.profiles p
+    join auth.users u on u.id = p.id
+   where lower(u.email) = lower(trim(p_email));
+
+  if v_id is null then
+    raise exception 'No hay ninguna cuenta registrada con el correo %', trim(p_email);
+  end if;
+  if v_role = 'admin' then
+    raise exception 'No puedes cambiar el rol del dueño de la tienda';
+  end if;
+
+  perform set_config('app.role_change', 'on', true);
+  update public.profiles
+     set role = case when p_is_staff then 'empleado' else 'cliente' end
+   where id = v_id;
+
+  return case when p_is_staff then 'empleado' else 'cliente' end;
+end;
+$$;
+
 revoke execute on function public._restock_order(bigint)                  from public, anon, authenticated;
 revoke execute on function public._expire_overdue()                       from public, anon, authenticated;
 revoke execute on function public.create_order(jsonb, jsonb, text, text)  from public;
@@ -698,6 +775,9 @@ revoke execute on function public.get_or_create_team(text, bigint)        from p
 revoke execute on function public.adjust_stock(bigint, int, text)         from public, anon;
 revoke execute on function public.cancel_order(bigint)                    from public, anon;
 revoke execute on function public.expire_unpaid_orders()                  from public, anon;
+revoke execute on function public._require_owner_mfa()                   from public, anon, authenticated;
+revoke execute on function public.list_staff()                            from public, anon;
+revoke execute on function public.set_staff_role(text, boolean)           from public, anon;
 
 grant execute on function public.create_order(jsonb, jsonb, text, text)  to anon, authenticated;
 grant execute on function public.validate_discount(text, numeric)        to anon, authenticated;
@@ -706,6 +786,8 @@ grant execute on function public.get_or_create_team(text, bigint)  to authentica
 grant execute on function public.adjust_stock(bigint, int, text)   to authenticated;
 grant execute on function public.cancel_order(bigint)              to authenticated;
 grant execute on function public.expire_unpaid_orders()            to authenticated;
+grant execute on function public.list_staff()                      to authenticated;
+grant execute on function public.set_staff_role(text, boolean)     to authenticated;
 
 grant usage on schema public to anon, authenticated;
 
@@ -735,7 +817,8 @@ create policy "ver mi perfil o admin ve todos" on public.profiles
   using (id = (select auth.uid()) or public.is_admin());
 create policy "editar mi perfil" on public.profiles
   for update to authenticated
-  using (id = (select auth.uid()) or public.is_admin());
+  using (id = (select auth.uid()))
+  with check (id = (select auth.uid()));
 
 create policy "catalogo publico categorias" on public.categories
   for select to anon, authenticated using (true);
@@ -845,3 +928,7 @@ select t.name, '', 'equipo', c.id, t.ord
     ('liga-profesional-argentina', 'River Plate',            2)
   ) as t(liga_slug, name, ord)
   join public.categories c on c.slug = t.liga_slug and c.level = 'liga';
+
+create extension if not exists pg_cron;
+
+select cron.schedule('expirar-pedidos', '* * * * *', $$ select public.expire_unpaid_orders(); $$);

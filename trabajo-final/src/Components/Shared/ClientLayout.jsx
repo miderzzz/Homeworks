@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Menu from './Menu';
 import Footer from './Footer';
+import WhatsappButton from './WhatsappButton';
 import styles from './ClientLayout.module.scss';
 
 const ClientLayout = () => (
@@ -10,6 +11,7 @@ const ClientLayout = () => (
       <Outlet />
     </main>
     <Footer />
+    <WhatsappButton />
   </div>
 );
 

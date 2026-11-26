@@ -18,3 +18,6 @@ export const fetchDrivingRoute = async (from, to) => {
   if (!route) throw new Error('No hay ruta disponible');
   return { km: route.distance / 1000, minutes: route.duration / 60 };
 };
+
+export const fetchStoreWhatsapp = async () =>
+  unwrap(await getClient().from('store_settings').select('whatsapp').eq('id', 1).single()).whatsapp;

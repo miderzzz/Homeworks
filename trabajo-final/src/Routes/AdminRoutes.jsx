@@ -8,9 +8,10 @@ import ProductForm from '../Pages/Admin/ProductForm/ProductForm';
 import Discounts from '../Pages/Admin/Discounts/Discounts';
 import Inventory from '../Pages/Admin/Inventory/Inventory';
 import Orders from '../Pages/Admin/Orders/Orders';
+import Team from '../Pages/Admin/Team/Team';
 
 const AdminRoutes = () => {
-  const { user, isAdmin, loading } = useAuth();
+  const { user, isAdmin, isOwner, loading } = useAuth();
   const location = useLocation();
 
   if (loading) return <Loader />;
@@ -28,6 +29,7 @@ const AdminRoutes = () => {
           <Route path="pedidos" element={<Orders />} />
           <Route path="inventario" element={<Inventory />} />
           <Route path="descuentos" element={<Discounts />} />
+          <Route path="equipo" element={isOwner ? <Team /> : <Navigate to="/admin/pedidos" replace />} />
           <Route path="*" element={<Navigate to="uniformes" replace />} />
         </Route>
       </Routes>

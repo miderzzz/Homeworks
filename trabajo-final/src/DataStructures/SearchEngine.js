@@ -23,6 +23,15 @@ export class SearchEngine {
     return result.reverse();
   }
 
+  static sortBy(items, key, descending = false) {
+    const heap = new MinHeap(items, descending ? (item) => -key(item) : key);
+    const result = [];
+    while (heap.size() > 0) {
+      result.push(heap.pop());
+    }
+    return result;
+  }
+
   insert(product) {
     this.trie.insertWords(product.name, product);
     this.trie.insertWords(product.team, product);

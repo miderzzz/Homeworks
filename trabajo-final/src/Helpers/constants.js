@@ -74,3 +74,4 @@ export const STORE_LOCATION = {
 };
 export const ROUTE_REFRESH_METERS = 150;
 export const CITY_SPEED_KMH = 25;
+export const STORE_WHATSAPP = '573175190835';

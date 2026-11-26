@@ -2,6 +2,7 @@ import { createContext, useCallback, useEffect, useMemo, useState } from 'react'
 import { fetchCategories, fetchProducts } from '../Services/catalogService';
 import { buildCatalogTree } from '../Helpers/catalogTree';
 import { SearchEngine } from '../DataStructures/SearchEngine';
+import { buildProductGraph } from '../Helpers/recommendations';
 import { useAuth } from '../Hooks/useAuth';
 
 export const CatalogContext = createContext(null);
@@ -35,6 +36,8 @@ export const CatalogProvider = ({ children }) => {
       teams: state.categories.filter((category) => category.level === "equipo"),
       tree: buildCatalogTree(state.categories, activeProducts),
       searchEngine: new SearchEngine(activeProducts),
+      productGraph: buildProductGraph(activeProducts),
+      productsById: new Map(activeProducts.map((product) => [product.id, product])),
       reload,
     };
   }, [state, reload]);
