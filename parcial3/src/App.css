@@ -1,0 +1,33 @@
+.App {
+  min-height: 100vh;
+  padding: calc(var(--espacio) * 2);
+  box-sizing: border-box;
+}
+
+.App-header {
+  text-align: center;
+  margin-bottom: calc(var(--espacio) * 2);
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.App-header h1 span {
+  color: var(--color-primario);
+}
+
+.App-header p {
+  margin: 4px 0 0;
+  color: var(--color-texto-suave);
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: calc(var(--espacio) * 1.5);
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}

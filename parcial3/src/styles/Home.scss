@@ -1,0 +1,210 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.home {
+  min-height: 100vh;
+  padding: $space * 2;
+  box-sizing: border-box;
+}
+
+.home_header {
+  text-align: center;
+  margin-bottom: $space * 2;
+
+  h1 {
+    margin: 0;
+    font-size: 2.5rem;
+
+    span {
+      color: $color-accent;
+    }
+  }
+
+  // Franja blaugrana debajo del titulo
+  &::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 6px;
+    margin: 14px auto 0;
+    border-radius: $radius-round;
+    background: linear-gradient(90deg, $color-secondary 50%, $color-primary 50%);
+  }
+
+  p {
+    margin: 4px 0 0;
+    color: $color-text-soft;
+  }
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $space * 1.5;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+// ===== Searcher =====
+.div-searcher {
+  .titulo-panel {
+    margin-bottom: $space;
+  }
+
+  .datos {
+    @include flex($gap: 10px);
+    margin-top: 10px;
+
+    .campo {
+      flex: 1;
+      min-width: 0;
+
+      &:last-child {
+        flex: 1.3;
+      }
+    }
+  }
+
+  .acciones {
+    @include flex($gap: 10px);
+    margin-top: $space;
+  }
+
+  .mensaje {
+    margin: $space 0 0;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+
+  // Crea .mensaje-success y .mensaje-error
+  @each $type, $color in $messages {
+    .mensaje-#{$type} {
+      background-color: rgba($color, 0.15);
+      color: $color;
+    }
+  }
+
+  .recommendations_list {
+    margin-top: $space;
+  }
+
+  .item {
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: $color-text-soft;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-panel-light;
+      color: $color-text;
+    }
+  }
+
+  .resaltado {
+    color: $color-accent;
+    font-weight: bold;
+  }
+}
+
+// ===== Recommendations =====
+.recommendations {
+  .title {
+    margin-bottom: $space;
+  }
+
+  .title:has(+ .subtitle) {
+    margin-bottom: 0;
+  }
+
+  .current {
+    @include flex(space-between, center, $space);
+    background-color: $color-text;
+    border-radius: $radius;
+    padding: $space;
+
+    h3 {
+      margin: 8px 0 0;
+      color: $color-background;
+    }
+
+    .boton {
+      white-space: nowrap;
+    }
+  }
+
+  h4 {
+    margin: $space * 1.5 0 10px;
+    color: $color-text-soft;
+    font-weight: normal;
+  }
+
+  .chips {
+    @include flex($gap: 8px);
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    @include pill($color-panel-light, $color-text);
+    border: 1px solid $color-primary;
+    padding: 8px 14px;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-on-primary;
+    }
+  }
+
+  .chip-tenue {
+    border-color: $color-text-soft;
+    color: $color-text-soft;
+  }
+}
+
+// ===== Ranking =====
+.div_ranking {
+  .title {
+    margin-bottom: $space;
+  }
+
+  .line {
+    @include flex($gap: 12px);
+    padding: 12px 0;
+    border-bottom: 1px solid $color-panel-light;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .position {
+    width: 28px;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: $color-text-soft;
+  }
+
+  .position-first {
+    color: $color-accent;
+  }
+
+  .info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .header {
+    @include flex(space-between, baseline, 8px);
+  }
+
+  .streams {
+    @include soft-text(0.85rem);
+  }
+
+  .artis {
+    @include soft-text(0.8rem);
+  }
+}

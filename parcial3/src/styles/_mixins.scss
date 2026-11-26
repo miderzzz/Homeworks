@@ -1,0 +1,27 @@
+@use "variables" as *;
+
+@mixin flex($justify: flex-start, $align: center, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin panel {
+  background-color: $color-panel;
+  border-radius: $radius;
+  padding: $space * 1.5;
+}
+
+@mixin pill($background, $color) {
+  background-color: $background;
+  color: $color;
+  border-radius: $radius-round;
+  cursor: pointer;
+  transition: $transition;
+}
+
+@mixin soft-text($size: 1rem) {
+  color: $color-text-soft;
+  font-size: $size;
+}
