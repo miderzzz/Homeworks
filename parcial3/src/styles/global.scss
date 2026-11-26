@@ -31,7 +31,7 @@ body {
   letter-spacing: 2px;
 }
 
-// ===== Botones =====
+
 .boton {
   @include pill($color-primary, $color-on-primary);
   border: none;
@@ -61,7 +61,7 @@ body {
   }
 }
 
-// ===== Inputs =====
+
 .campo {
   width: 100%;
   box-sizing: border-box;
@@ -79,7 +79,7 @@ body {
   }
 }
 
-// ===== Listas y etiquetas =====
+
 .lista-ranking,
 .recommendations_list {
   list-style: none;

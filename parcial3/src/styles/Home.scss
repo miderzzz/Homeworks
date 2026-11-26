@@ -20,7 +20,7 @@
     }
   }
 
-  // Franja blaugrana debajo del titulo
+
   &::after {
     content: "";
     display: block;
@@ -46,7 +46,7 @@
   align-items: start;
 }
 
-// ===== Searcher =====
+
 .div-searcher {
   .titulo-panel {
     margin-bottom: $space;
@@ -78,7 +78,7 @@
     font-size: 0.9rem;
   }
 
-  // Crea .mensaje-success y .mensaje-error
+
   @each $type, $color in $messages {
     .mensaje-#{$type} {
       background-color: rgba($color, 0.15);
@@ -109,7 +109,7 @@
   }
 }
 
-// ===== Recommendations =====
+
 .recommendations {
   .title {
     margin-bottom: $space;
@@ -163,7 +163,7 @@
   }
 }
 
-// ===== Ranking =====
+
 .div_ranking {
   .title {
     margin-bottom: $space;
