@@ -79,7 +79,6 @@ Grafo ponderado | src/DataStructures/Graph.js | También te puede gustar: En est
 
 
 WhatsApp
-
 No usa la API de pago de WhatsApp Business si no que se usan enlaces de "clic para chatear" ("https://wa.me/<número>?text=<mensaje>"), que abre WhatsApp en el celular o en WhatsApp Web con el mensaje ya escrito.
 Advertencia: el enlace solo abre el chat; el cliente debe pulsar enviar. Por eso el correo automático (Resend) es el aviso confiable de cada pedido.
 
@@ -99,7 +98,7 @@ Estructura del proyecto
 src/
 ├── Components/      Componentes hijos, agrupados por página (Index, Shared, Admin, Catalog, ...)
 ├── Context/         Contextos globales: sesión, catálogo, carrito y admin
-├── DataStructures/  Cola, pila, árbol N-ario, trie, montículo y grafo
+├── DataStructures/  Todas las clases: Cola, pila, árbol N-ario, trie, montículo y grafo
 ├── Helpers/         Constantes, formateadores, validadores y utilidades
 ├── Hooks/           Custom hooks con la lógica de cada vista
 ├── Pages/           Páginas padre (Index, Catalog, Cart, Admin, ...)
