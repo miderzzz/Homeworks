@@ -13,8 +13,8 @@ Todas las vistas incluyen las funciones del cliente. La diferencia entre admin y
 
 
 Sitio publicado (Netlify): https://tiendasportchampion.netlify.app/
-Cuenta Admin: Correo: Amiderosespana@gmail.com - Contraseña: Alfredo9210
-Cuenta Empleado: Correo: Carlos.mideros@uao.edu.co - Contraseña: Alfredo9210
+Cuenta Admin: Correo: amiderosespana+demo@gmail.com - Contraseña: 123456
+Cuenta Empleado: Correo: amiderosespana+empleado@gmail.com - Contraseña: 123456
 Cuenta Cliente: La puede crear usted mismo, en caso de que la desee probar.
 
 
