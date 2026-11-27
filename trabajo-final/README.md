@@ -17,6 +17,8 @@ Cuenta Admin: Correo: amiderosespana+demo@gmail.com - Contraseña: 123456
 Cuenta Empleado: Correo: amiderosespana+empleado@gmail.com - Contraseña: 123456
 Cuenta Cliente: La puede crear usted mismo, en caso de que la desee probar.
 
+Notiprofe: Profesor, cuando ingresa a la sección equipo desde la cuenta Admin o Dueño por primera vez le va a salir un código QR, ese código le debe escanear con un autenticador, después accede con el código dado por la aplicación. Lo implemente porque me parece una buena manera de mantener la seguridad de los roles.
+
 
 Integrantes
 
@@ -52,6 +54,7 @@ Panel de administración
 - Inventario editable por talla, con opción de deshacer.
 - Códigos de descuento por porcentaje o valor fijo, con fechas, compra mínima y límite de usos.
 - Equipo (solo el dueño, protegido con Google Authenticator): dar o quitar acceso de empleado con el correo registrado.
+
 
 
 Estructuras de datos
