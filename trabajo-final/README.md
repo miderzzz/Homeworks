@@ -4,13 +4,19 @@ Tienda en línea de uniformes de fútbol con tres vistas: la tienda para los cli
 
 Enlaces
 
-Sitio publicado (Netlify): _pendiente_
-Diseño (Figma): para verlo bien, en el prototipo abre el botón de configuración y elige Fit width y Hide UI.
+Diseño (Figma): Para verlo bien, en el prototipo abre el botón de configuración y, primero elige Fit width y  después Hide UI.
   - [Vista cliente](https://www.figma.com/proto/lfL4tCOyCGewa3Nh9DN6KC/Sport-Champion?node-id=0-1&t=9jAiGbC8vDabFX6I-1)
   - [Vista admin](https://www.figma.com/proto/lfL4tCOyCGewa3Nh9DN6KC/Sport-Champion?node-id=96-9027&t=9jAiGbC8vDabFX6I-1)
   - [Vista empleado](https://www.figma.com/proto/lfL4tCOyCGewa3Nh9DN6KC/Sport-Champion?node-id=61-5223&t=9jAiGbC8vDabFX6I-1)
 
 Todas las vistas incluyen las funciones del cliente. La diferencia entre admin y empleado es que el admin puede dar y quitar el rol de empleado.
+
+
+Sitio publicado (Netlify): https://tiendasportchampion.netlify.app/
+Cuenta Admin: Correo: Amiderosespana@gmail.com - Contraseña: Alfredo9210
+Cuenta Empleado: Correo: Carlos.mideros@uao.edu.co - Contraseña: Alfredo9210
+Cuenta Cliente: La puede crear usted mismo, en caso de que la desee probar.
+
 
 Integrantes
 
@@ -57,16 +63,16 @@ Cola de pedidos del panel admin: Los pedidos se guardan y se atienden con base a
 Pila | src/DataStructures/Stack.js | Cambios inventario: Cada cambio en el inventario se apila y lo que hace el boton Deshacer es volver a antes del ultimo cambio.
 
 
-Arbol N-ario | src/DataStructures/NaryTree.js | Barra lateral: Barra de navegacion con padres e hijos. En este caso, la secuencia es Liga -> Equipo -> Version. Ya que los datos son jerarquicos, permite desplegar y/o filtrar por los criterios mencionados anteteriormente.
+Arbol N-ario | src/DataStructures/NaryTree.js | Barra lateral: Barra de navegacion con padres e hijos. En este caso, la secuencia es Liga -> Equipo -> Version. Ya que los datos son jerarquicos, permite desplegar y/o filtrar por los criterios mencionados anteriormente.
 
 
-Trie | src/DataStructures/Trie.js | Buscador: La busqueda se realiza desde el primer caracter empezando a buscar por coincidencia con el nombre del producto, asi que las palabras que empiezan igual saldran. Si pones "Int" saldran Inter de Miami e Inter de Milan porque son las que tienen mas caracteres coincidencia.
+Trie | src/DataStructures/Trie.js | Buscador: La busqueda se realiza desde el primer caracter empezando a buscar por coincidencia con el nombre del producto, asi que las palabras que empiezan igual saldran. Si pones 'Int' salen todos los que empiezan con esas letras, como Inter de Miami e Inter de Milan, ordenados por ventas.
 
 
-Montículo mínimo | src/DataStructures/MinHeap.js | Más vendidos (Top-K): Es un grupo de k uniformes con mas ventas, en el monticulo se almacenan los 4 mas vendidos, cada que que pasa los 4 saca al ultimo, sacando por ende al que menos ventas tenga de los 5. Ordenamiento del catálogo: En este caso no se descarta ninguno, el que va sacando es el que tiene menor coste por ende, sale de primero y se muesta al inicio.
+Montículo mínimo | src/DataStructures/MinHeap.js | Más vendidos (Top-K): Es un grupo de k uniformes con mas ventas, en el monticulo se almacenan los 4 mas vendidos, cada que pasa los 4 saca al ultimo, sacando por ende al que menos ventas tenga de los 5. Ordenamiento del catálogo: En este caso no se descarta ninguno, el que va sacando es el que tiene menor coste por ende, sale de primero y se muestra al inicio.
 
 
-Grafo ponderado | src/DataStructures/Graph.js | También te puede gustar: En este caso, cada uniforme es un nodo, y se conectan los que comparten equipo, liga, version o formato, con peso 4, 2, 1 respectivamente. Para escoger la recomendacion recorre el grafo y se suman los pesos, al final se muestran los 4 uniformes con mas puntaje.
+Grafo ponderado | src/DataStructures/Graph.js | También te puede gustar: En este caso, cada uniforme es un nodo, y se conectan los que comparten equipo, liga, version y formato, con peso 4, 2, 1 y 1 respectivamente. Para escoger la recomendación recorre el grafo y se suman los pesos, al final se muestran los 4 uniformes con mas puntaje.
 
 
 WhatsApp
